@@ -9,6 +9,7 @@ play = True
 guess= 0
 times= 0
 
+# create and write to a new file.
 def print_the_result (user_name: str, times: int):
     fh = open(f'files/{user_name}_result.txt', 'w')
     fh.write(f'yaaaay, GOD JOB {user_name} you did it after {times} tries!.')
@@ -18,9 +19,11 @@ while play:
     while guess != random_num:
         guess= (input(f'Hello {user_name} Guess a number between {min_num} and {max_num}: '))
         stop=str(guess)
-        if guess == 'Q' or guess == 'q':
+        # to stop the game.
+        if guess == 'Q' or guess == 'q': 
             play= False
             break
+        # check the numbers.
         elif int(guess) > max_num:
             print(f'Sorry, but the max number is {max_num}')
         elif int(guess) < min_num:
@@ -31,8 +34,10 @@ while play:
         elif int(guess) < random_num:
             print('Sorry, guess again TOO low. :)')
             times += 1
+        # if the user guess the right number.  
         else:
             print(f'yaaaay, GOD JOB {user_name} you did it after {times} times.')
+        # create a file function.
             print_the_result(user_name,times )
             play_again = input(f'{user_name} do yo want to play again?')
             if play_again == "N" or play_again == "n":
@@ -41,7 +46,7 @@ while play:
             if play_again == 'Y' or play_again == 'y':
                 times= 0
                 guess= 0
-                random_num = random.randint(1, 10) 
+                random_num = random.randint(min_num, max_num) 
                 play= True
                 
 

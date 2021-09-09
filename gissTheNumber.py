@@ -14,6 +14,7 @@ def print_the_result (user_name: str, times: int):
     fh = open(f'files/{user_name}_result.txt', 'w')
     fh.write(f'yaaaay, GOD JOB {user_name} you did it after {times} tries!.')
     fh.close()
+    
 # read the file and get the high score
 def get_high_score():
     high_score= 0
